@@ -1,0 +1,8 @@
+47e78bf update README with personal details
+fd79a5e add custom changes to main.dart, update QnA in README
+b816197 update main.dart
+c3bc0fc add custom changes to repozitorij_provjera.dart, update QnA in README
+b666f7f add lib/repozitorij.dart and bin/repozitorij_provjera.dart
+9a0e296 add custom changes to Zadatak model, model_provjera.dart, and add QnA to README
+7d3c0c3 add bin/model_provjera.dart and lib/zadatak.dart
+dba84e5 initial commit
