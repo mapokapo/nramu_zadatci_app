@@ -8,7 +8,7 @@ void main() {
 [
   {"id": 1, "naslov": "Instalacija", "zavrsen": true},
   {"id": 2, "naslov": "Git"},
-  {"id": 3, "naslov": "Dart", "zavrsen": false}
+  {"id": 3, "naslov": "Dart", "zavrsen": false, "opis": "Dart je zavrsen"}
 ]''';
   final lista = (jsonDecode(tekst) as List)
       .map((e) => Zadatak.fromJson(e as Map<String, dynamic>))
@@ -17,4 +17,6 @@ void main() {
   print('Drugi je zavrsen: ${lista[1].zavrsen}');
   print(jsonEncode(lista.first.toJson()));
   print(lista[1].kopiraj(zavrsen: true).zavrsen);
+  print('Drugi nema opis: ${lista[1].opis}');
+  print('Treci ima opis: ${lista[2].opis}');
 }
