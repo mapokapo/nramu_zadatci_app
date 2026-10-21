@@ -1,0 +1,8 @@
+fileignoreconfig:
+- filename: .metadata
+  checksum: 5f70a02f49ee842c3a255c10f2fb299314cc46d7647180f54d3db8b54561862f
+- filename: android/app/build.gradle.kts
+  checksum: 2890a6469c07b4025fadbd3b85aaeb6bf94efd6a530624fb914a90539205281b
+- filename: pubspec.lock
+  checksum: f66c1192b43d58a9fba497780d4341584f0c8937516f7d800b420dd18872f7d6
+version: "1.0"
