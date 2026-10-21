@@ -33,10 +33,14 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
 
   late Future<List<Zadatak>> _buduci = _repo.dohvati();
 
-  void _ponovi() {
+  Future<void> _ponovi() async {
     setState(() {
       _buduci = _repo.dohvati();
     });
+
+    try {
+      await _buduci;
+    } catch (_) {}
   }
 
   @override
@@ -46,7 +50,8 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
       body: FutureBuilder<List<Zadatak>>(
         future: _buduci,
         builder: (context, snap) {
-          if (snap.connectionState != ConnectionState.done) {
+          if (snap.connectionState == ConnectionState.waiting &&
+              !snap.hasData) {
             return const Center(child: CircularProgressIndicator());
           }
 
@@ -57,7 +62,7 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
                 children: [
                   const Icon(Icons.error_outline, size: 48, color: Colors.red),
                   const SizedBox(height: 8),
-                  Text('${snap.error}'),
+                  Text('Dogodila se greška prilikom dohvata podataka'),
                   const SizedBox(height: 8),
                   FilledButton(
                     onPressed: _ponovi,
@@ -68,28 +73,57 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
             );
           }
 
-          final zadaci = snap.data!;
+          final zadaci = snap.data ?? [];
 
           if (zadaci.isEmpty) {
-            return const Center(child: Text('Nema zadataka'));
+            return RefreshIndicator(
+              onRefresh: _ponovi,
+              child: ListView(
+                children: const [
+                  SizedBox(
+                    height: 300,
+                    child: Center(child: Text('Nema zadataka')),
+                  ),
+                ],
+              ),
+            );
           }
 
-          return ListView.builder(
-            itemCount: zadaci.length,
-            itemBuilder: (context, i) {
-              final z = zadaci[i];
-              return ListTile(
-                leading: Icon(
-                  z.zavrsen ? Icons.check_circle : Icons.radio_button_unchecked,
-                ),
-                title: Text(
-                  z.naslov,
-                  style: TextStyle(
-                    decoration: z.zavrsen ? TextDecoration.lineThrough : null,
+          return Column(
+            children: [
+              Expanded(
+                child: RefreshIndicator(
+                  onRefresh: _ponovi,
+                  child: ListView.builder(
+                    itemCount: zadaci.length,
+                    itemBuilder: (context, i) {
+                      final z = zadaci[i];
+                      return ListTile(
+                        leading: Icon(
+                          z.zavrsen
+                              ? Icons.check_circle
+                              : Icons.radio_button_unchecked,
+                        ),
+                        title: Text(
+                          z.naslov,
+                          style: TextStyle(
+                            decoration: z.zavrsen
+                                ? TextDecoration.lineThrough
+                                : null,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
-              );
-            },
+              ),
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'Zavrsenih zadataka: ${zadaci.where((z) => z.zavrsen).length} od ${zadaci.length}',
+                ),
+              ),
+            ],
           );
         },
       ),
