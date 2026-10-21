@@ -2,6 +2,20 @@
 
 ## Vjezba 2
 
+Ime i prezime: Leo Petrovic
+
+OS: Ubuntu 24.04 LTS
+
+Verzija Fluttera: 3.47.7
+
+Verzija Darta: 3.13.5
+
+Koristeni uredjaji: Android mobitel i Google Chrome
+
+Provedene izmjene: dodan zadatak.dart, repozitorij.dart, model_provjera.dart, i repozitorij_provjera.dart; napravljene izmjene u sve 4 Dart datoteke (opcionalno polje `opis`, dohvat podataka u repozitoriju za Future.wait i timeout), modificiran main.dart u Flutter projektu (kopirano sa materijala), napravljene izmjene u main.dart (prikaz broja gotovih zadataka).
+
+Problemi: nije instaliran devtools za Flutter Linux (nije potrebno)
+
 ### Pitanja i odgovori
 
 Pitanje: zašto polja modela (Zadatak) nisu promjenjiva i što bi se dogodilo da u JSON-u polje naslov nedostaje?
