@@ -28,6 +28,15 @@ class _FormaEkranState extends State<FormaEkran> {
 
     if (tekst.isEmpty) return 'Unesite naslov';
     if (tekst.length < 3) return 'Naslov mora imati najmanje 3 znaka';
+    if (tekst.length > 40) return 'Naslov ne smije imati vise od 40 znakova';
+    if (tekst[0] != tekst[0].toUpperCase())
+      return 'Prvi znak naslova mora biti veliko slovo';
+
+    if (widget.postojeci.any(
+      (z) => z.naslov.toLowerCase() == tekst.toLowerCase(),
+    )) {
+      return 'Zadatak sa naslovom "$tekst" vec postoji';
+    }
 
     return null;
   }
