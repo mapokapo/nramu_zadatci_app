@@ -38,9 +38,12 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
   Future<void> _ucitaj() async {
     final podaci = await _repo.dohvati();
 
-    _zadaci
-      ..clear()
-      ..addAll(podaci);
+    if (!mounted) return;
+    setState(() {
+      _zadaci
+        ..clear()
+        ..addAll(podaci);
+    });
   }
 
   void _ponovi() {
