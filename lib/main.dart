@@ -17,7 +17,7 @@ class ZadatciApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
-      home: ZadatciEkran(),
+      home: const ZadatciEkran(),
     );
   }
 }
