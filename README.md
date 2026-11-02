@@ -12,7 +12,7 @@ Verzija Darta: 3.13.5
 
 Koristeni uredjaji: Android mobitel i Google Chrome
 
-Provedene izmjene: dodan FAB i tema.
+Provedene izmjene: dodan FAB i tema, dodan FormaEkran, dodano dugme "Odbaci", dodan brojac zadataka u main.dart AppBaru, dodano jos validatora za FormaEkran.
 
 Problemi: nije instaliran devtools za Flutter Linux (nije potrebno)
 
