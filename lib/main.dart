@@ -14,7 +14,7 @@ class ZadatciApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Zadatci',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
       home: ZadatciEkran(),
