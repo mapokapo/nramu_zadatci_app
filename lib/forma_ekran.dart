@@ -81,6 +81,13 @@ class _FormaEkranState extends State<FormaEkran> {
               ),
               const SizedBox(height: 8),
               FilledButton(onPressed: _spremi, child: const Text('Spremi')),
+              const SizedBox(height: 8),
+              FilledButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Odustani'),
+              ),
             ],
           ),
         ),
