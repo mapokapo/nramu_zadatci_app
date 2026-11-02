@@ -1,0 +1,19 @@
+cacf771 fix main.dart AppBar title
+366035f fix flutter analyze issue
+c38fa33 add changelist to README
+9e3134a add custom validation to forma_ekran.dart
+2253fab add custom changes to main.dart
+ba889e2 add navigation to main.dart
+f1f6963 add form with validation FormaEkran
+81ba521 add custom changes to main.dart
+acd54cf add FAB and theme to main.dart
+10597a3 remove leftover files from vjezba-02
+8b2baf7 Dokazi za vjezbu 2
+47e78bf update README with personal details
+fd79a5e add custom changes to main.dart, update QnA in README
+b816197 update main.dart
+c3bc0fc add custom changes to repozitorij_provjera.dart, update QnA in README
+b666f7f add lib/repozitorij.dart and bin/repozitorij_provjera.dart
+9a0e296 add custom changes to Zadatak model, model_provjera.dart, and add QnA to README
+7d3c0c3 add bin/model_provjera.dart and lib/zadatak.dart
+dba84e5 initial commit
