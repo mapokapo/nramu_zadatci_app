@@ -22,4 +22,10 @@ Pitanje: navedite tri stvari koje u vježbi 3 rade ekranu ne pripadaju (po obras
 
 Ucitavanje podataka (4 stanja: ucitavanje, uspjeh, greska, prazna lista), dodavanje podataka (rucno generirati novi ID, dodati u listu, itd.), rucna validacija.
 
+---
+
+Pitanje: što bi se dogodilo kad bi StatistikaEkran u svom initState stvorio novi ZadatciViewModel(ZadatakRepozitorij())?
+
+StatistikaEkran bi onda koristio svoj vlastiti izvor podataka koji nema veze sa ViewModelom koji se koristi u main.dart. Kada bi usli u StatistikaEkran, uvijek bi vidjeli "Ukupno: 0, Zavrseno: 0, Preostalo: 0" jer je lista podataka prazna po zadanom (mora se rucno pozvati metoda `ucitaj` u VM-u) i nijedan dio koda ne modificira tu listu (bilo kroz VM ili ne) pa ostane prazna.
+
 ### Pitanja i odgovori

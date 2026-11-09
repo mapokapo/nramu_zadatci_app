@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'forma_ekran.dart';
 import 'repozitorij.dart';
+import 'statistika_ekran.dart';
 import 'zadatci_viewmodel.dart';
 
 void main() => runApp(const ZadatciApp());
@@ -58,10 +59,26 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
         .showSnackBar(SnackBar(content: Text('Dodano: $naslov')));
   }
 
+  void _otvoriStatistiku() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => StatistikaEkran(vm: _vm)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Zadatci')),
+      appBar: AppBar(
+        title: const Text('Zadatci'),
+        actions: [
+          IconButton(
+            onPressed: _otvoriStatistiku,
+            tooltip: 'Statistika',
+            icon: const Icon(Icons.bar_chart),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _dodaj,
         tooltip: 'Novi zadatak',

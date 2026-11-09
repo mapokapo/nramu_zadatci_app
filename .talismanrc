@@ -5,6 +5,8 @@ fileignoreconfig:
   checksum: 2890a6469c07b4025fadbd3b85aaeb6bf94efd6a530624fb914a90539205281b
 - filename: lib/forma_ekran.dart
   checksum: e6ab4f46ba2dc0676386e779eac1cae8ad166b181668747b504ec9734ce144ba
+- filename: lib/statistika_ekran.dart
+  checksum: 56d8acec140fcb04a25db1e29e858cd5101072ddc107dfc17db89eb1131d17d0
 - filename: pubspec.lock
   checksum: f66c1192b43d58a9fba497780d4341584f0c8937516f7d800b420dd18872f7d6
 version: "1.0"
