@@ -12,7 +12,7 @@ Verzija Darta: 3.13.5
 
 Koristeni uredjaji: Android mobitel i Google Chrome
 
-Provedene izmjene:
+Provedene izmjene: dodan ViewModel za zadatke, iskoristen ZadatciViewModel u main.dart i StatistikaEkran, dodani Flutter testovi za ZadatciViewModel, dodana `ukloni` metoda, dodana polja `samoNezavrseni` i `prikazani` u ZadatciViewModel.
 
 Problemi: nije instaliran devtools za Flutter Linux (nije potrebno)
 
