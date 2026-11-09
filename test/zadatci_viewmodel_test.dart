@@ -43,4 +43,14 @@ void main() {
 
     expect(vm.zavrseno, 3);
   });
+  test('ukloni smanji broj zadataka za 1', () async {
+    final vm = ZadatciViewModel(ZadatakRepozitorij());
+
+    await vm.ucitaj();
+
+    vm.ukloni(1);
+
+    expect(vm.ukupno, 3);
+    expect(vm.zavrseno, 1);
+  });
 }

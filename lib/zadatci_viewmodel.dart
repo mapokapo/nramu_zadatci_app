@@ -65,4 +65,13 @@ class ZadatciViewModel extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  void ukloni(int id) {
+    final i = _zadatci.indexWhere((z) => z.id == id);
+    if (i == -1) return;
+
+    _zadatci.removeAt(i);
+
+    notifyListeners();
+  }
 }
