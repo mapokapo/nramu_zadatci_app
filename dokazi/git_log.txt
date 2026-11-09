@@ -1,0 +1,10 @@
+d83dd18 update README
+9daf4df add README QnA
+f8038aa add custom change: samoNezavrseni and prikazani
+f3635ec add custom change: ukloni method, Dismissible widget, test
+a5a4161 add tests for ViewModel
+e2eca82 add StatistikaEkran, update README
+593233c use VM in FormaEkran
+3f659fe add ZadatciViewModel
+8a0ccba remove leftovers from vjezba-03, add Provjera razumijevanja 1
+2dd8a90 Dokazi za vjezbu 3
