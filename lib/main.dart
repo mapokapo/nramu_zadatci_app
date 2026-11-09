@@ -77,6 +77,11 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
             tooltip: 'Statistika',
             icon: const Icon(Icons.bar_chart),
           ),
+          IconButton(
+            onPressed: _vm.samoNezavrseniToggle,
+            tooltip: 'Samo nezavrseni',
+            icon: Icon(Icons.change_circle),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -111,13 +116,13 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
                 ),
               );
             case Stanje.uspjeh:
-              if (_vm.zadatci.isEmpty) {
+              if (_vm.prikazani.isEmpty) {
                 return const Center(child: Text('Nema zadataka'));
               }
               return ListView.builder(
-                itemCount: _vm.zadatci.length,
+                itemCount: _vm.prikazani.length,
                 itemBuilder: (context, i) {
-                  final z = _vm.zadatci[i];
+                  final z = _vm.prikazani[i];
                   return Dismissible(
                     key: ValueKey(z.id),
                     onDismissed: (_) => _vm.ukloni(z.id),
