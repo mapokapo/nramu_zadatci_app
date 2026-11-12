@@ -27,3 +27,9 @@ Always Free instanca je besplatna konfiguracija virtualnog stroja koju pruza Ora
 Pitanje: objasnite razliku između Docker slike (image) i kontejnera te zašto se podaci baze moraju držati u volumenu.
 
 Docker slika/image je sablon kojeg Docker koristi da bi instancirao kontejner odnosno virtualni stroj koji radi kao proces na trenutnom racunalu. Kontejner je instanca slike koja aktivno obradjuje neke procese i moze komunicirati sa vanjskim svijetom (posluziteljem) putem mreze i sustava podataka. Analogija za ovo je Java/OOP: Docker slika je klasa (sablon, ne radi nista sama po sebi) a Docker kontejner je instanca klase odnosno objekt (zivi u memoriji, aktivan, ima zivotni tok koji traje od stvaranja do unistenja objekta). Posto su kontejneri "ephemeral" (kratkotrajni, brisu se svi podatci i ponovno rekreiraju kada zaustavimo i ponovno pokrenemo kontejner), ne mozemo njegov interni sustav podataka koristiti za skladistenje baze podataka. Podatke zbog toga moramo drzati u posluzitelju (stvarnom stroju koji pokrece Docker kontejnere) putem Docker volumena. Volumen je nacin da Docker kontejner pohranjuje podatke na posluziteljskom stroju, i na taj nacin podatci ostanu sacuvani cak i nakon restarta kontejnera.
+
+---
+
+Pitanje: što rade servisi Postgres, REST (PostgREST), Auth, Storage i Studio te što je gateway na portu 8000.
+
+Servis Postgres je baza podataka koja se koristi za pohranu i upravljanje podacima. REST (PostgREST) je servis koji omogucuje pristup bazi podataka putem REST API-ja, sto omogucuje aplikacijama da komuniciraju s bazom podataka koristeci HTTP zahtjeve. Auth servis je odgovoran za autentifikaciju i autorizaciju korisnika, omogucujuci siguran pristup aplikaciji i njenim resursima. Storage servis omogucuje pohranu i upravljanje datotekama, dok Studio servis pruza graficko sucelje za upravljanje bazom podataka i drugim resursima.
