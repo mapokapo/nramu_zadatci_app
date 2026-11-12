@@ -3,12 +3,14 @@ fileignoreconfig:
   checksum: 5f70a02f49ee842c3a255c10f2fb299314cc46d7647180f54d3db8b54561862f
 - filename: android/app/build.gradle.kts
   checksum: 2890a6469c07b4025fadbd3b85aaeb6bf94efd6a530624fb914a90539205281b
+- filename: env.example.json
+  checksum: e0b75404c1bb2e09b6559fa04ecdbe0411055dc04e13e972a7efc13d0891583d
 - filename: lib/forma_ekran.dart
   checksum: e6ab4f46ba2dc0676386e779eac1cae8ad166b181668747b504ec9734ce144ba
 - filename: lib/main.dart
-  checksum: 475303be275cc1073d7e8cbde7aec3b0939ff3dac77885496ae2245b758997a2
+  checksum: 0edadd1b14aa26438b1768fd9fa335e16e3da600324fd9f0e6d1905247625e24
 - filename: lib/statistika_ekran.dart
   checksum: 56d8acec140fcb04a25db1e29e858cd5101072ddc107dfc17db89eb1131d17d0
 - filename: pubspec.lock
-  checksum: f66c1192b43d58a9fba497780d4341584f0c8937516f7d800b420dd18872f7d6
+  checksum: 702a6f1ed037b199560c59c998303bd893c1c913660ed4cd2e7da3e990efa832
 version: "1.0"

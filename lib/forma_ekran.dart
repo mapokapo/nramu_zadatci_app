@@ -19,16 +19,13 @@ class _FormaEkranState extends State<FormaEkran> {
 
   String? _provjeriNaslov(String? vrijednost) {
     final tekst = vrijednost?.trim() ?? '';
-
     if (tekst.isEmpty) return 'Unesite naslov';
     if (tekst.length < 3) return 'Naslov mora imati najmanje 3 znaka';
-
     return null;
   }
 
   void _spremi() {
     if (!_kljuc.currentState!.validate()) return;
-
     Navigator.pop(context, _naslov.text.trim());
   }
 
