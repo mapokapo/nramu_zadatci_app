@@ -33,3 +33,9 @@ Docker slika/image je sablon kojeg Docker koristi da bi instancirao kontejner od
 Pitanje: što rade servisi Postgres, REST (PostgREST), Auth, Storage i Studio te što je gateway na portu 8000.
 
 Servis Postgres je baza podataka koja se koristi za pohranu i upravljanje podacima. REST (PostgREST) je servis koji omogucuje pristup bazi podataka putem REST API-ja, sto omogucuje aplikacijama da komuniciraju s bazom podataka koristeci HTTP zahtjeve. Auth servis je odgovoran za autentifikaciju i autorizaciju korisnika, omogucujuci siguran pristup aplikaciji i njenim resursima. Storage servis omogucuje pohranu i upravljanje datotekama, dok Studio servis pruza graficko sucelje za upravljanje bazom podataka i drugim resursima.
+
+---
+
+Pitanje: što bi aplikacija prikazala da u skripti nema politike "anon cita", i zašto nema poruke o pogrešci?
+
+Ako u skripti nema politike "anon cita", aplikacija bi prikazala praznu listu ili ne bi prikazala nikakve podatke jer bi zahtjev za dohvat podataka bio odbijen zbog nedostatka autorizacije. Supabase RLS ne radi jednostavnu autorizaciju, nego filtrira redove u tablici na koju korisnik cilja i vraca samo one redove koji zadovoljavaju uvjete definirane u politici. Ako ne postoji politika koja dozvoljava anonimni pristup, korisnik neće dobiti nikakve podatke, ali neće biti prikazana poruka o pogrešci jer je zahtjev tehnički uspješan (HTTP status 200), ali rezultat je prazan zbog RLS pravila.
