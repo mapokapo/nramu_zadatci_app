@@ -38,4 +38,16 @@ Servis Postgres je baza podataka koja se koristi za pohranu i upravljanje podaci
 
 Pitanje: što bi aplikacija prikazala da u skripti nema politike "anon cita", i zašto nema poruke o pogrešci?
 
-Ako u skripti nema politike "anon cita", aplikacija bi prikazala praznu listu ili ne bi prikazala nikakve podatke jer bi zahtjev za dohvat podataka bio odbijen zbog nedostatka autorizacije. Supabase RLS ne radi jednostavnu autorizaciju, nego filtrira redove u tablici na koju korisnik cilja i vraca samo one redove koji zadovoljavaju uvjete definirane u politici. Ako ne postoji politika koja dozvoljava anonimni pristup, korisnik neće dobiti nikakve podatke, ali neće biti prikazana poruka o pogrešci jer je zahtjev tehnički uspješan (HTTP status 200), ali rezultat je prazan zbog RLS pravila.
+Ako u skripti nema politike "anon cita", aplikacija bi prikazala praznu listu ili ne bi prikazala nikakve podatke jer bi zahtjev za dohvat podataka bio odbijen zbog nedostatka autorizacije. Supabase RLS ne radi jednostavnu autorizaciju, nego filtrira redove u tablici na koju korisnik cilja i vraca samo one redove koji zadovoljavaju uvjete definirane u politici. Ako ne postoji politika koja dozvoljava anonimni pristup, korisnik nece dobiti nikakve podatke, ali nece biti prikazana poruka o pogresci jer je zahtjev tehnicki uspješan (HTTP status 200), ali rezultat je prazan zbog RLS pravila.
+
+---
+
+Pitanje: zašto ViewModel mijenja lokalni popis tek nakon što izvor uspije, a ne prije? Što bi korisnik vidio da je obrnuto, a veza padne?
+
+Ako bi ViewModel mijenjao lokalni popis prije nego sto izvor uspije, korisnik bi vidio promjene u sucelju koje nisu zapravo potvrdjene od strane izvora podataka. Ako veza padne ili dodje do pogreske prilikom komunikacije s izvorom, korisnik bi mogao vidjeti netocne ili nepotvrdjene podatke, sto bi moglo dovesti do konfuzije i gubitka povjerenja u aplikaciju. Stoga je bolje da se lokalni popis mijenja tek nakon sto izvor uspije, kako bi se osigurala konzistentnost i tocnost prikazanih podataka. Postoje slucajevi kada se lokalni popis promijeni odmah (optimistic update), ali to zahtijeva dodatnu logiku za rollback u slucaju pogreske.
+
+---
+
+Pitanje: zašto se u aplikaciju stavlja publishable, a ne secret ključ, i što bi se dogodilo kad bi secret ključ završio u repozitoriju?
+
+Publishable kljuc od Supabase-a se koristi unutar javnih klijentskih aplikacija (kao sto je Flutter aplikacija) jer je namijenjen za javnu upotrebu i ne sadrzi osjetljive informacije. Sa Supabase strane taj kljuc ima "anon" rolu koji po zadanom nema nikakav pristup podatcima osim onih koje mi eksplicitno navedemo, stoga je siguran za koristenje u ovakvim slucajevima. Secret kljuc je namijenjen za server-side aplikacije (nisu izlozene korisnicima) i on se mapira u rolu "service_role" sa Supabase strane, koja potpuno zaobilazi sva sigurnosna pravila i daje potpun pristup svim podatcima i funkcijama, stoga nije primjeren za koristenje u javnim aplikacijama. Ako bi secret kljuc zavrsio u repozitoriju, bilo tko tko ima pristup repozitoriju bi mogao koristiti taj kljuc za pristup svim podatcima i funkcijama Supabase instance, sto bi predstavljalo ozbiljan sigurnosni rizik.

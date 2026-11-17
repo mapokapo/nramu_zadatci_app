@@ -1,6 +1,8 @@
 fileignoreconfig:
 - filename: .metadata
   checksum: 5f70a02f49ee842c3a255c10f2fb299314cc46d7647180f54d3db8b54561862f
+- filename: README.md
+  checksum: 712e9ad887c5daf813a6912bf9b44b52aa07505a27ffef1aff77fef7ef4eba67
 - filename: android/app/build.gradle.kts
   checksum: 2890a6469c07b4025fadbd3b85aaeb6bf94efd6a530624fb914a90539205281b
 - filename: env.example.json
