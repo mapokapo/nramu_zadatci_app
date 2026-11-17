@@ -1,6 +1,8 @@
 // ignore_for_file: unused_element, unused_field
 // (obrišite ovaj redak kad dovršite zadatke)
 import 'package:flutter/material.dart';
+import 'package:nramu_zadatci_app/supabase_izvor.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'forma_ekran.dart';
 import 'memorijski_izvor.dart';
@@ -15,10 +17,17 @@ const _supabaseKljuc = String.fromEnvironment('SUPABASE_PUBLISHABLE_KEY');
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // TODO 2: ako su _supabaseUrl i _supabaseKljuc zadani, pozovite
-  // Supabase.initialize(url: ..., publishableKey: ...) i koristite
-  // SupabaseIzvor(Supabase.instance.client). Inače ostaje MemorijskiIzvor.
-  final ZadatciIzvor izvor = MemorijskiIzvor();
+  final ZadatciIzvor izvor;
+  if (_supabaseUrl.isEmpty || _supabaseKljuc.isEmpty) {
+    izvor = MemorijskiIzvor();
+  } else {
+    await Supabase.initialize(
+      url: _supabaseUrl,
+      publishableKey: _supabaseKljuc,
+    );
+    izvor = SupabaseIzvor(Supabase.instance.client);
+  }
+
   runApp(ZadatciApp(izvor: izvor));
 }
 

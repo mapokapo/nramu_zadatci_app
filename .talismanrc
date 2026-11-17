@@ -8,7 +8,7 @@ fileignoreconfig:
 - filename: lib/forma_ekran.dart
   checksum: e6ab4f46ba2dc0676386e779eac1cae8ad166b181668747b504ec9734ce144ba
 - filename: lib/main.dart
-  checksum: 0edadd1b14aa26438b1768fd9fa335e16e3da600324fd9f0e6d1905247625e24
+  checksum: 127bfaf7603a288034f6aa35e1c6dff17374c5f5aa753f5cb737bac3a3de43c3
 - filename: lib/statistika_ekran.dart
   checksum: 56d8acec140fcb04a25db1e29e858cd5101072ddc107dfc17db89eb1131d17d0
 - filename: pubspec.lock
