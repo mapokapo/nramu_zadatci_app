@@ -39,6 +39,11 @@ class SupabaseIzvor implements ZadatciIzvor {
   });
 
   @override
+  Future<void> promijeniNaslov(int id, String naslov) => _izvedi(() async {
+    await _db.from('zadatci').update({'naslov': naslov}).eq('id', id);
+  });
+
+  @override
   Future<void> postaviZavrsen(int id, bool zavrsen) => _izvedi(() async {
     await _db.from('zadatci').update({'zavrsen': zavrsen}).eq('id', id);
   });

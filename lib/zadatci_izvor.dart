@@ -13,6 +13,7 @@ class ZadatciException implements Exception {
 abstract class ZadatciIzvor {
   Future<List<Zadatak>> dohvati();
   Future<Zadatak> dodaj(String naslov);
+  Future<void> promijeniNaslov(int id, String naslov);
   Future<void> postaviZavrsen(int id, bool zavrsen);
   Future<void> obrisi(int id);
 }

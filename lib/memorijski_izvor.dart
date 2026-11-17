@@ -47,6 +47,13 @@ class MemorijskiIzvor implements ZadatciIzvor {
   }
 
   @override
+  Future<void> promijeniNaslov(int id, String naslov) async {
+    await Future.delayed(odgoda);
+    final i = _redovi.indexWhere((z) => z.id == id);
+    if (i != -1) _redovi[i] = _redovi[i].kopiraj(naslov: naslov);
+  }
+
+  @override
   Future<void> postaviZavrsen(int id, bool zavrsen) async {
     await Future.delayed(odgoda);
     final i = _redovi.indexWhere((z) => z.id == id);

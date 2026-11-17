@@ -8,7 +8,7 @@ fileignoreconfig:
 - filename: env.example.json
   checksum: e0b75404c1bb2e09b6559fa04ecdbe0411055dc04e13e972a7efc13d0891583d
 - filename: lib/forma_ekran.dart
-  checksum: e6ab4f46ba2dc0676386e779eac1cae8ad166b181668747b504ec9734ce144ba
+  checksum: 4b8a12b293ceaaa010eb8f2c8c880071532ad7b44165f971b3ecc30c5aa3bb52
 - filename: lib/main.dart
   checksum: 127bfaf7603a288034f6aa35e1c6dff17374c5f5aa753f5cb737bac3a3de43c3
 - filename: lib/statistika_ekran.dart

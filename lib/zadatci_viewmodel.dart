@@ -55,6 +55,21 @@ class ZadatciViewModel extends ChangeNotifier {
     });
   }
 
+  Future<bool> promijeniNaslov(int id, String naslov) async {
+    final tekst = naslov.trim();
+    if (tekst.length < 3) {
+      _poruka = 'Naslov mora imati najmanje 3 znaka';
+      return false;
+    }
+    final i = _zadatci.indexWhere((z) => z.id == id);
+    if (i == -1) return false;
+    return _izvedi(() async {
+      await _izvor.promijeniNaslov(id, tekst);
+      final j = _zadatci.indexWhere((z) => z.id == id);
+      if (j != -1) _zadatci[j] = _zadatci[j].kopiraj(naslov: tekst);
+    });
+  }
+
   Future<bool> promijeniZavrsen(int id) async {
     final i = _zadatci.indexWhere((z) => z.id == id);
     if (i == -1) return false;
