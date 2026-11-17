@@ -126,63 +126,66 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
         tooltip: 'Novi zadatak',
         child: const Icon(Icons.add),
       ),
-      body: ListenableBuilder(
-        listenable: _vm,
-        builder: (context, _) {
-          switch (_vm.stanje) {
-            case Stanje.ucitavanje:
-              return const Center(child: CircularProgressIndicator());
-            case Stanje.greska:
-              return Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(
-                      Icons.error_outline,
-                      size: 48,
-                      color: Colors.red,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(_vm.poruka),
-                    const SizedBox(height: 8),
-                    FilledButton(
-                      onPressed: _vm.ucitaj,
-                      child: const Text('Pokušaj ponovno'),
-                    ),
-                  ],
-                ),
-              );
-            case Stanje.uspjeh:
-              if (_vm.zadatci.isEmpty) {
-                return const Center(child: Text('Nema zadataka'));
-              }
-              return ListView.builder(
-                itemCount: _vm.zadatci.length,
-                itemBuilder: (context, i) {
-                  final z = _vm.zadatci[i];
-                  return ListTile(
-                    leading: Checkbox(
-                      value: z.zavrsen,
-                      onChanged: (_) => _promijeni(z.id),
-                    ),
-                    title: Text(
-                      z.naslov,
-                      style: TextStyle(
-                        decoration: z.zavrsen
-                            ? TextDecoration.lineThrough
-                            : null,
+      body: RefreshIndicator(
+        onRefresh: _vm.ucitaj,
+        child: ListenableBuilder(
+          listenable: _vm,
+          builder: (context, _) {
+            switch (_vm.stanje) {
+              case Stanje.ucitavanje:
+                return const Center(child: CircularProgressIndicator());
+              case Stanje.greska:
+                return Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.error_outline,
+                        size: 48,
+                        color: Colors.red,
                       ),
-                    ),
-                    trailing: IconButton(
-                      onPressed: () => _obrisi(z.id),
-                      tooltip: 'Obriši',
-                      icon: const Icon(Icons.delete_outline),
-                    ),
-                  );
-                },
-              );
-          }
-        },
+                      const SizedBox(height: 8),
+                      Text(_vm.poruka),
+                      const SizedBox(height: 8),
+                      FilledButton(
+                        onPressed: _vm.ucitaj,
+                        child: const Text('Pokušaj ponovno'),
+                      ),
+                    ],
+                  ),
+                );
+              case Stanje.uspjeh:
+                if (_vm.zadatci.isEmpty) {
+                  return const Center(child: Text('Nema zadataka'));
+                }
+                return ListView.builder(
+                  itemCount: _vm.zadatci.length,
+                  itemBuilder: (context, i) {
+                    final z = _vm.zadatci[i];
+                    return ListTile(
+                      leading: Checkbox(
+                        value: z.zavrsen,
+                        onChanged: (_) => _promijeni(z.id),
+                      ),
+                      title: Text(
+                        z.naslov,
+                        style: TextStyle(
+                          decoration: z.zavrsen
+                              ? TextDecoration.lineThrough
+                              : null,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () => _obrisi(z.id),
+                        tooltip: 'Obriši',
+                        icon: const Icon(Icons.delete_outline),
+                      ),
+                    );
+                  },
+                );
+            }
+          },
+        ),
       ),
     );
   }
