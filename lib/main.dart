@@ -174,8 +174,7 @@ class _ZadatciEkranState extends State<ZadatciEkran> {
                       ),
                     ),
                     trailing: IconButton(
-                      // TODO 4: pozovite _obrisi(z.id)
-                      onPressed: null,
+                      onPressed: () => _obrisi(z.id),
                       tooltip: 'Obriši',
                       icon: const Icon(Icons.delete_outline),
                     ),
