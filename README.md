@@ -6,13 +6,17 @@ Ime i prezime: Leo Petrovic
 
 OS: Ubuntu 24.04 LTS
 
+Koristeni oblika Oracle instance: Always Free Ampere A1 Flex (2 OCPU, 12 GB RAM, 200 GB block storage), Ubuntu Linux 22.04 LTS
+
+Verzija Supabase: 17.6
+
 Verzija Fluttera: 3.47.7
 
 Verzija Darta: 3.13.5
 
 Koristeni uredjaji: Android mobitel i Google Chrome
 
-Provedene izmjene:
+Provedene izmjene: aplikacija spojena na Supabase, implementirane metode za dohvat, dodavanje, brisanje i promjenu zadataka, dodana mogucnost promjene naslova zadatka.
 
 Problemi: nije instaliran devtools za Flutter Linux (nije potrebno)
 
